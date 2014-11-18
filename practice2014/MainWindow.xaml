@@ -1,0 +1,23 @@
+﻿<Window x:Class="practice2014.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fractal ="clr-namespace:ViewModel;assembly=ViewModel" 
+        Title="MainWindow" Height="768" Width="1024" SizeChanged="Window_SizeChanged" >
+    <Grid DataContext="{Binding Mode=OneWay, Source={StaticResource FractalModel}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <RadioButton x:Name="isEnabled" Content="Мандельброта" HorizontalAlignment="Left" Margin="0,63,-15,0" VerticalAlignment="Top" IsChecked="{Binding isMandelbrot}" Command ="{Binding SelectCommand, Mode=OneWay}" GroupName="set" Grid.Column="1" Height="19" Width="133"/>
+        <RadioButton Content="Жюлиа" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Command ="{Binding SelectCommand, Mode=OneWay}" IsChecked="{Binding isJulia}" GroupName="set" Grid.Column="1" Height="19" Width="78" />
+        <Label Content="Множество" HorizontalAlignment="Left" Margin="0,29,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33" Width="98" />
+        <RadioButton Content="Последовательно" HorizontalAlignment="Left" Margin="0,164,-36,0" VerticalAlignment="Top" IsChecked="{Binding isSequintial}" Command ="{Binding SelectCommand, Mode=OneWay}" GroupName="method" Grid.Column="1" Height="19" Width="154"/>
+        <RadioButton Content="Параллельно" HorizontalAlignment="Left" Margin="0,189,-4,0" VerticalAlignment="Top" Command ="{Binding SelectCommand, Mode=OneWay}" IsChecked="{Binding isParallel}" GroupName="method" Grid.Column="1" Height="20" Width="122" />
+        <Label Content="Считать" HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33" Width="70" />
+
+
+        <Image x:Name="img" Source="{Binding fractalImg}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="1" Grid.Column="0"/>
+
+    </Grid>
+</Window>
